@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import jwt_decode from "jwt-decode";
 import { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+=======
+import jwt_decode from 'jwt-decode';
+import { useContext, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+>>>>>>> f17e539c94fc254a5dfb6822221bb7e48512db69
 
 import Navbar from "./components/Layout/Navbar";
 import Home from "./pages/home";

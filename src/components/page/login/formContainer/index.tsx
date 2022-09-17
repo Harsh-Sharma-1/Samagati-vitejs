@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useContext, useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BsFacebook } from "react-icons/bs";
@@ -10,6 +11,20 @@ import styles from "./styles.module.scss";
 import { AuthContext } from "../../../../app/auth";
 import { signIn } from "../../../../services/auth";
 import NueButton from "./btn";
+=======
+import React, { useContext, useState } from 'react';
+import { AiFillGoogleCircle } from 'react-icons/ai';
+import { BsFacebook } from 'react-icons/bs';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
+import Input from '../../../UI/Input';
+import SocialMediaBtn from '../../../UI/SocialMediaBtn';
+import styles from './styles.module.scss';
+import { AuthContext } from '../../../../app/auth';
+import { signIn } from '../../../../services/auth';
+import NueButton from './btn';
+>>>>>>> f17e539c94fc254a5dfb6822221bb7e48512db69
 
 const FormContainer = () => {
   const user = useContext(AuthContext);
@@ -20,6 +35,7 @@ const FormContainer = () => {
     password: "",
   });
 
+<<<<<<< HEAD
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
@@ -34,6 +50,33 @@ const FormContainer = () => {
       alert(err.response.data.error.message);
     }
   };
+=======
+    const onSubmit = async (e: any) => {
+        e.preventDefault();
+        try {
+            const data = await signIn({ ...values });
+            user.setValue({
+                user: data.user,
+            });
+            localStorage.setItem('samagati_jwt', data.jwt);
+            localStorage.setItem('samagati_user', JSON.stringify(data.user));
+            Swal.fire({
+                title: 'Login Success',
+                text: 'User login is successfull',
+                icon: 'success',
+                confirmButtonText: 'Cool',
+            });
+            navigate('/');
+        } catch (err: any) {
+            Swal.fire({
+                title: 'Error',
+                text: err.response.data.error.message,
+                icon: 'error',
+                confirmButtonText: 'Cool',
+            });
+        }
+    };
+>>>>>>> f17e539c94fc254a5dfb6822221bb7e48512db69
 
   return (
     <div className={styles.container}>
